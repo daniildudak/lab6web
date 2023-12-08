@@ -24,3 +24,9 @@ jobs:
 
     - name: Run tests
       run: mvn test --file pom.xml
+
+    # Use a specific token with necessary scopes
+    - name: Deploy to GitHub Packages
+      run: mvn deploy
+      env:
+        CI_TOKEN: ${{ secrets.GITHUB_TOKEN }}
